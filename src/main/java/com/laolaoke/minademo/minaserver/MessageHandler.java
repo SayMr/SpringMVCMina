@@ -15,7 +15,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public class MessageHandler extends IoHandlerAdapter {
 
-	private final int IDLE = 2;//��λ��
+	private final int IDLE = 2;//单位秒
 
 	private final Logger LOG = Logger.getLogger(MessageHandler.class);
 
@@ -33,11 +33,11 @@ public class MessageHandler extends IoHandlerAdapter {
 	@Override
 	public void messageReceived(IoSession session, Object message) throws Exception {
 		String str = message.toString();
-		LOG.warn("�ͻ���" + ((InetSocketAddress) session.getRemoteAddress()).getAddress().getHostAddress() + "���ӳɹ���");
+		LOG.warn("客户端" + ((InetSocketAddress) session.getRemoteAddress()).getAddress().getHostAddress() + "连接成功！");
 		session.setAttribute("type", message);
 		String remoteAddress = ((InetSocketAddress) session.getRemoteAddress()).getAddress().getHostAddress();
 		session.setAttribute("ip", remoteAddress);
-		LOG.warn("�������յ�����Ϣ�ǣ�" + str);
+		LOG.warn("服务器收到的消息是：" + str);
 		if(message.toString().startsWith("{\"companyId\"")) {
 			String companyId = JSONObject.parseObject(message.toString()).getString("companyId");
 			session.setAttribute("companyId", companyId);

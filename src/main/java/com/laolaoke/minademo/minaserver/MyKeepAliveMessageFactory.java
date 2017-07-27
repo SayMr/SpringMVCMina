@@ -8,7 +8,7 @@ public class MyKeepAliveMessageFactory implements  KeepAliveMessageFactory{
 	
 	private final Logger LOG = Logger.getLogger(MyKeepAliveMessageFactory.class);
 	
-    /** ���������� */  
+	/** 心跳包内容 */  
     private static final String HEARTBEATREQUEST = "ping";  
     private static final String HEARTBEATRESPONSE = "pong"; 
 
@@ -22,7 +22,7 @@ public class MyKeepAliveMessageFactory implements  KeepAliveMessageFactory{
 
 	public boolean isRequest(IoSession session, Object message) {
          if (message.equals(HEARTBEATREQUEST)){
-        	 LOG.warn("������������Ϣ: " + message); 
+        	 LOG.warn("请求心跳包信息: " + message); 
              return true; 
          }
          return false;
@@ -30,7 +30,7 @@ public class MyKeepAliveMessageFactory implements  KeepAliveMessageFactory{
 
 	public boolean isResponse(IoSession session, Object message) {
       if(message.equals(HEARTBEATRESPONSE)) {
-    	  LOG.warn("��Ӧ��������Ϣ: " + message);  
+    	  LOG.warn("响应心跳包信息: " + message);  
     	  return true;
       }  
 		return false;

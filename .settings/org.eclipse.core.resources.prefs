@@ -1,5 +1,3 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/laolaoke/minademo/minaclient/ClientHandler.java=UTF-8
 encoding//src/main/java/com/laolaoke/minademo/minaclient/ClientTest.java=UTF-8
-encoding//src/main/java/com/laolaoke/minademo/minaserver/MessageHandler.java=gbk
-encoding//src/main/java/com/laolaoke/minademo/minaserver/MyKeepAliveMessageFactory.java=gbk
